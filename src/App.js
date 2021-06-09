@@ -7,6 +7,9 @@ import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
+import NavBar from "./components/NavBar";
+
+import { Route, Switch } from "react-router";
 
 import products from "./products";
 const theme = {
@@ -60,11 +63,31 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>
+
+      {/* <ThemeButton onClick={toggleTheme}>
         {currentTheme === "light" ? "Dark" : "Light"} Mode
-      </ThemeButton>
-      <Home />
-      {setView()}
+      </ThemeButton> */}
+      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
+      <Switch>
+        <Route path="/products/:productSlug">
+          <ProductDetail
+            products={products}
+            setProduct={setProduct}
+            deleteProduct={deleteProduct}
+          />
+        </Route>
+        <Route path="/productlist">
+          {/* {setView()} */}
+          <ProductList
+            setProduct={setProduct}
+            products={_products}
+            deleteProduct={deleteProduct}
+          />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }

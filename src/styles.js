@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { NavLink, Link } from "react-router-dom";
 
 export const Description = styled.h4`
   text-align: center;
@@ -9,6 +10,10 @@ export const DetailWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 40%;
@@ -78,3 +83,33 @@ export const Title = styled.h1`
 `;
 
 export const DeleteButtonStyled = styled.button``;
+
+export const NavProduct = styled(NavLink)`
+  color: white;
+  width: 100px;
+  height: 40px;
+  margin-top: 15px;
+  text-align: center;
+
+  &.active {
+    background-color: aqua;
+    margin-top: 15px;
+  }
+`;
+export const NavHome = styled(NavLink)`
+  color: white;
+  width: 100px;
+  height: 40px;
+  margin-top: 15px;
+  text-align: center;
+  margin-right: 1000px;
+  /* &.active {
+    background-color: aqua;
+    margin-top: 15px;
+  } */
+`;
+export const NavCont = styled.nav`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
