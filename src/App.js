@@ -63,7 +63,7 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-
+      
       {/* <ThemeButton onClick={toggleTheme}>
         {currentTheme === "light" ? "Dark" : "Light"} Mode
       </ThemeButton> */}
